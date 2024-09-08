@@ -5,6 +5,5 @@ class Daemon extends Character {
     super(actors.filter(item => item.type==='Daemon')[0]);
     }
 }
- 
 export default Daemon;
 
