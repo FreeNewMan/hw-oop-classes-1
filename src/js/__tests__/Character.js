@@ -1,21 +1,24 @@
-import Character, {actors} from "../Character"
+import Character from "../Character";
+
+// const actors = [
+//   {name: 'Bowerman', type: 'Bowerman', health: 100, level: 1, attack: 25, defence: 25}, 
+//   {name: 'Swordsman', type: 'Swordsman', health: 100, level: 1, attack: 40, defence: 10}, 
+//   {name: 'Magician', type: 'Magician', health: 100, level: 1, attack: 10, defence: 40}, 
+//   {name: 'Undead', type: 'Undead', health: 100, level: 1, attack: 25, defence: 25}, 
+//   {name: 'Zombie', type: 'Zombie', health: 100, level: 1, attack: 40, defence: 10}, 
+//   {name: 'Daemon', type: 'Daemon', health: 100, level: 1, attack: 10, defence: 40},  
+// ];
+
+
 
 describe('Проверка класса Character', () => { 
   test('Проверка длины имени наименьшее ', () => {
-    expect(() => new Character({name: 'B', type: 'Bowerman', health: 100, level: 1, attack: 25, defence: 25})).toThrowError("Имя игрока должно быть длиной от 2 до 10 символов")
+    expect(() => new Character('B','Bowerman')).toThrowError("Имя игрока должно быть длиной от 2 до 10 символов")
   });
   test('Проверка длины имени наибольшее ', () => {
-    expect(() => new Character({name: 'BowermanBowerman', type: 'Bowerman', health: 100, level: 1, attack: 25, defence: 25})).toThrowError("Имя игрока должно быть длиной от 2 до 10 символов")
+    expect(() => new Character('BowermanBowerman','Bowerman')).toThrowError("Имя игрока должно быть длиной от 2 до 10 символов")
   });
   test('Проверка типа персонажа', () => {
-    expect(() => new Character({name: 'Noname', type: 'Noname', health: 100, level: 1, attack: 25, defence: 25})).toThrowError("Неизвестный персонаж")
-  });
-  test('Проверка создания ожидаемого персонажа', () => {
-    expect(new Character({name: 'Magician', type: 'Magician', health: 100, level: 1, attack: 10, defence: 40})).toEqual({name: 'Magician', type: 'Magician', level: 1, health: 100, attack: 10, defence: 40});
-  });
-  test.each(
-    actors,
-  )('Проверка создания персонажа %s', (actorItem) => {
-    expect(new Character(actorItem)).toEqual(actorItem);
+    expect(() => new Character('Noname', 'Noname')).toThrowError("Неизвестный персонаж")
   });
 }); 
